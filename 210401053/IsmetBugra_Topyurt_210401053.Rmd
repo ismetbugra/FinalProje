@@ -13,3 +13,19 @@ knitr::opts_chunk$set(echo = TRUE)
 Reborn Studio oyun şirketi olarak popüler oyunların remake versiyonlarını yapmaktayız. Geçmişte belirli oyun kategorilerine yoğunlaştığımız için kazanç hedefimize ulaşamadık. Bu yüzden aşağıda verdiğimiz veri seti kullanılarak , verdiğimiz kriterler ve algoritma tanımları ile gelecekteki projelerimiz için bize kar sağlayacak popüler oyunların listesi çıkarılacaktır ve buna göre yol haritamız çizilecektir.
 
 <hr style="border:1px solid black;">
+
+# Q2 : Proje Amacı
+
+[Video Games Sales](https://www.kaggle.com/datasets/thedevastator/global-video-game-sales-and-reviews/data) adlı Kaggle veri setini kullanarak iş problemini belirlediğimiz algoritma ve kriterler kullanılarak çözmeyi amaçlıyoruz.Bu yöntemler aşağıda verilmiştir.
+
+### Kullanılacak kriterler ve algoritmalar:
+
+1.  Oyun türlerimiz Action ,Shooter ve Racing olmalıdır.
+2.  Bölge olarak North America ,Europe ve Japan baz alınmalıdır.
+3.  Bu bölgelerdeki satış miktarlarının ortalaması 1 milyondan fazla olmalıdır.
+4.  2000 -- 2010 arasında yayınlanmış olan oyunlar baz alınmalıdır.
+5.  PS,PS2,PS3,PC,X360 platformlarında yayınlanmış oyunlar olmalıdır.(Yapım aşamasında yeni nesile uyarlanacaklardır.)
+
+Bu yöntemler sayesinde bize kar sağlayacak oyunlar belirlenmiş olacak ve gelecekteki projelerimiz için fikir sunacaktır.
+
+<hr style="border:1px solid black;">
