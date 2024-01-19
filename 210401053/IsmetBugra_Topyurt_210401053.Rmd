@@ -107,4 +107,9 @@ Yukarıda verilen pasta grafiğinde veri setimizdeki oyunların türlerine göre
 
 <hr style="border:1px solid black;">
 
+# Q4: Veri seti ön işlemesi
+
+Veri setimizdeki veri tipleri projemize uygun olduğu için herhangi bir ön işlemeye ihtiyaç yoktur.
+
+<hr style="border:1px solid black;">
 
