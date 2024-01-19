@@ -188,3 +188,19 @@ testthat::test_file("Q1_tests_IsmetBugra_Topyurt_210401053.R")
 
 <hr style="border:1px solid black;">
 
+# Q7 : Sonuç değerlendirme, tavsiyeler
+
+Proje  genelinde yapılan işlemler problemimiz için çözüm yöntemi vermektedir.
+Veri setinde yapılan filtreleme ve hesaplamalar sonucunda veri setimiz problemimizi çözmek için ideal hale getirilmiştir.
+Q6 bölümündeki grafik 3 bölgedeki ortalama satış miktarı 1 milyondan fazla olan ilk 10 oyunu vermektedir.Platform bazlı da kategorileştirilmiştir.
+
+Bu grafiğe bakılarak şirketimiz, gelecekte yapım sürecine girecekleri projeleri ve projelerinin planlama süreçleri için fikir ve karar alabilir.Satış miktarı,oyun türü,platform türüne bağlı olarak elemeler yapılabilir.Böylece şirket bütçeleri çerçevesinde kazanç ve kar sağlayabilirler.Sonuç olarak problemimiz çözülmüş olur.
+
+İleride, şirket online anketler ve kendilerine gelen taleplerle bu analizleri geliştirebilir. Böylece yapım sürecine geçecekleri oyunlara karar verebilirler.
+Bulundukları dönemde popüler olan türlere göre eleme yapabilirler.
+Çeşitli oyun festivalleri ve etkinliklerinde oyunculardan tavsiye ve geri bildirim alarak projelerini ve fikirlerini geliştirebilirler ya da değişim yapabilirler.
+Ortalama satış hesabına başka bçlgeler eklenebilir veya bölgeler çıkarılabilir.Tek bir bölgeye de odaklanılabilir.
+
+<hr style="border:1px solid black;">
+
+
