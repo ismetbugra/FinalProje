@@ -113,3 +113,46 @@ Veri setimizdeki veri tipleri projemize uygun olduğu için herhangi bir ön iş
 
 <hr style="border:1px solid black;">
 
+# Q5 : Veri mühendisliği
+
+```{r echo=FALSE,message=FALSE,warning=FALSE}
+
+##lazım olmayan sutunlar sılındı
+myDF<-myDF[, -which(names(myDF) %in% c("Rest.of.World","Global","Review","Publisher","index","Rank"))]
+
+
+##2000-2010 arasında cıkmıs oyunları filtreledik
+myDF<-myDF[myDF$Year>=2000 & myDF$Year<=2010 ,]
+
+# NA içeren satırları silme
+myDF <- myDF[complete.cases(myDF), ]
+
+## oyun türü action shooter racing olanları aldık
+myDF <- myDF[myDF$Genre %in% c("Action", "Shooter", "Racing"), ]
+
+# "PS", "PS2", "PS3", "PC", ve "X360" platformlarında yayınlanmış oyunları seçme
+myDF <- myDF[myDF$Platform %in% c("PS", "PS2", "PS3", "PC", "X360"), ]
+
+#ortalama 1 milyon satıs olanlar
+myDF$Ortalama_Satis <- rowMeans(myDF[, c("Japan", "North.America", "Europe")], na.rm = TRUE)
+myDF<-myDF[myDF$Ortalama_Satis > 1, ]
+myDF<-myDF[, -which(names(myDF) %in% c("North.America","Japan","Europe"))]
+knitr::kable(head(myDF,3),caption = "İlk 3 Oyun")
+
+```
+
+Q3 bölümünde ham veri setimizin analizini yapmıştık.Bu bölümde o veri setimizi gerekli işlemler yapılarak veri setimiz yukarıda görüldüğü gibi daha sade ve amacımıza uygun hale getirilmiştir.
+
+### Bu işlemler şunlardır:
+
+-   Lazım olmayan gereksiz sütunlar silindi.(**Rest.of.World,Global, Review,Publisher,index,Rank**)
+-   2000-2010 yılları arasında çıkan oyunlar filtrelendi.
+-   NA içeren satırlar silindi.
+-   Oyun türü Action,Shooter,Racing olanlar filtrelendi.
+-   "PS", "PS2", "PS3", "PC", ve "X360" platformlarında yayınlanmış oyunlar filtrelendi.
+-   3 bölgenin satış ortalaması alınarak Ortalama_Satis sütunu olusturuldu.
+
+Bu işlemler sonucunda ortalama satış miktarı 1 milyondan fazla olan oyunların bir kısmı gösterilmiştir.Daha rahat bir gösterim olması için 3 bölge çıktıda verilmemiştir. Böylece veri setimiz analiz yapılacak hale gelmiştir.
+
+<hr style="border:1px solid black;">
+
