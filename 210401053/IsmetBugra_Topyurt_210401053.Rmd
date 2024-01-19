@@ -29,3 +29,82 @@ Reborn Studio oyun şirketi olarak popüler oyunların remake versiyonlarını y
 Bu yöntemler sayesinde bize kar sağlayacak oyunlar belirlenmiş olacak ve gelecekteki projelerimiz için fikir sunacaktır.
 
 <hr style="border:1px solid black;">
+
+# Q3 : Veri seti keşifsel analizi
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+filename<-"Video Games Sales.csv"
+library(readr)
+myDF<-read.csv(filename)
+
+
+```
+
+Veri seti Kaggle web sitesinden indirilmiştir ve **readr::read_csv()** fonksiyonu kullanılarak **`r class(myDF)[[1]]`** tipinde bir değişkene ithal edilmiştir.Verinin boyutları aşağıdaki gibidir:
+
+-   Satır sayısı : `r nrow(myDF)`
+-   Sütun sayısı : `r ncol(myDF)`
+
+Veri setimizin bir kısmı aşağıdaki gibidir:
+
+```{r echo=FALSE,message=FALSE,warning=FALSE}
+knitr::kable(head(myDF,10),caption = "İlk 10 Oyun")
+
+```
+
+Veri seti incelendiğinde problem çözümü için **Rest.of.World,Global ve Review** sütünlarına ihtiyacımız yoktur.Bu yüzden bu sütunlar veri setimizden çıkarılacaktır. **Index,Rank,Year,Nort.America,Europe,Japan** sütunlarımız **numeric** tiptedir.Geri kalan sütunlarımız **character** tipindedir.Bu veri tipleri projemiz için uygundur herhangi bir tip dönüşümüne gerek yoktur.
+
+Year verilerinin dağılımı aşağıda verilmiştir:
+
+```{r echo=FALSE,message=FALSE,warning=FALSE}
+hist(myDF$Year, main="Yıllara göre oyunların dağılımı",xlab = "Yıllar",ylab = "Sıklık",col = "lightblue")
+```
+
+Yukarıdaki grafikte görüldüğü gibi yıl aralığımız ihtiyacımızdan fazladır.Bu yüzden gerekli işlemlerle 2000-2010 aralığına indirgenecektir.
+
+```{r echo=FALSE,message=FALSE,warning=FALSE}
+library(ggplot2)
+# Platform sütunundaki değerlerin frekanslarını hesapla
+frekanslar <- table(myDF$Platform)
+
+# Frekansları DataFrame'e çevir
+df_frekans <- as.data.frame(frekanslar)
+names(df_frekans) <- c("Platform", "Frekans")
+
+# ggplot2 ile pasta grafiği çizimi
+grafik1 <- ggplot(df_frekans, aes(x = "", y = Frekans, fill = Platform)) +
+          geom_bar(stat = "identity", width = 1) +
+          coord_polar("y", start = 0) +
+          theme_void() +
+          labs(title = "Platform Türlerinin Dağılımı")
+
+# Grafik gösterme
+print(grafik1)
+```
+
+Yukarıdaki pasta grafiğinde veri setimizde bulunan platform türlerinin dağılımı gösterilmiştir.Göründüğü gibi birçok platform bulunmaktadır ve bunlar arasından gerekli olmayanlar çıkarılacaktır.
+
+```{r echo=FALSE,message=FALSE,warning=FALSE}
+# Oyun türleri sütunundaki değerlerin frekanslarını hesapla
+frekanslar_Genre <- table(myDF$Genre)
+
+# Frekansları DataFrame'e çevir
+df_frekans_genre <- as.data.frame(frekanslar_Genre)
+names(df_frekans_genre) <- c("Tur", "Frekans")
+
+# ggplot2 ile pasta grafiği çizimi
+grafik <- ggplot(df_frekans_genre, aes(x = "", y = Frekans, fill = Tur)) +
+          geom_bar(stat = "identity", width = 1) +
+          coord_polar("y", start = 0) +
+          theme_void() +
+          labs(title = "Oyun Türleri Dağılımı")
+
+# Grafik gösterme
+print(grafik)
+```
+
+Yukarıda verilen pasta grafiğinde veri setimizdeki oyunların türlerine göre dağılım gerçekleştirilmiştir.Görüldüğü üzere birçok tür bulunmaktadır.Bu yüzden kendi planlarımız çerçevesinde olan türlerle projemize devam edip gerekli olmayan türler veri setinden çıkarılacaktır.
+
+<hr style="border:1px solid black;">
+
+
