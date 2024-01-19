@@ -1,0 +1,15 @@
+---
+title: 'Proje Rapor : İsmet Buğra Topyurt 210401053.'
+output: html_document
+date: "2024-01-19"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Q1 : Problem tanımı
+
+Reborn Studio oyun şirketi olarak popüler oyunların remake versiyonlarını yapmaktayız. Geçmişte belirli oyun kategorilerine yoğunlaştığımız için kazanç hedefimize ulaşamadık. Bu yüzden aşağıda verdiğimiz veri seti kullanılarak , verdiğimiz kriterler ve algoritma tanımları ile gelecekteki projelerimiz için bize kar sağlayacak popüler oyunların listesi çıkarılacaktır ve buna göre yol haritamız çizilecektir.
+
+<hr style="border:1px solid black;">
