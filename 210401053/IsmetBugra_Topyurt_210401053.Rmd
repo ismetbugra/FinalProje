@@ -156,3 +156,35 @@ Bu işlemler sonucunda ortalama satış miktarı 1 milyondan fazla olan oyunlar�
 
 <hr style="border:1px solid black;">
 
+# Q6 : Veri analizi
+
+```{r echo=FALSE,message=FALSE,warning=FALSE}
+
+# ggplot2 paketini yükle
+##install.packages("ggplot2")
+library(ggplot2)
+
+df_head <- head(myDF, 10)
+
+
+grafik6 <- ggplot(df_head, aes(x = Game.Title, y = Ortalama_Satis, fill = Platform)) +
+  geom_bar(stat = "identity", position = "dodge", color = "black") +
+  labs(title = "Ortalama Satış Miktarları (Farklı Platformlar)",
+       x = "Oyun Adı",
+       y = "Ortalama Satış Miktarı(Milyon)",
+       fill = "Platform") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+print(grafik6)
+
+  
+```
+
+Yukarıdaki grafikte 3 bölgedeki ortalama satış miktarı 1 milyondan fazla olan ilk 10 oyunun ortalama satış miktarına göre grafikte gösterimi gerçekleştirilmiştir.Bir oyun birden fazla platformda da olabileceği için farklı platformlarda satışa sunulmuş oyunlar platform türlerine göre ayrılarak gösterilmiştir.Böylece platform bazlı olarak ortalama satış miktarları ele alınabilir.
+
+```{r echo=FALSE,message=FALSE,warning=FALSE,results='hide'}
+testthat::test_file("Q1_tests_IsmetBugra_Topyurt_210401053.R")
+```
+
+<hr style="border:1px solid black;">
+
